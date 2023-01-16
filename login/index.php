@@ -13,8 +13,7 @@
   <nav>
     <ul>
       <li><a href="#">Home</a></li>
-      <li><a href="#">Test</a></li>
-      <li><a href="#">Test</a></li>
+      <li><a href="/phpmyadmin">php my admin</a></li>
       <li><a href="/login">login</a></li>
     </ul>
   </nav>
