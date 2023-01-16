@@ -1,0 +1,20 @@
+#settings {
+  min-height: 20rem;
+  min-width: 80%;
+  height: fit-content;
+  box-shadow: 5px 4px 9px 0px rgba(0, 0, 0, 0.61);
+  padding: 5px;
+}
+
+#settings ul {
+  list-style: none;
+  display: grid;
+  gap: 5px;
+}
+
+#settings ul li {
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 2px;
+  width: fit-content;
+}
