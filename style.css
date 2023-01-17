@@ -77,11 +77,27 @@ nav ul li:not(.active):hover a {
 .registerLogin {
   display: flex;
   flex-direction: column;
-  width: max-content;
+  min-width: 100px;
+  max-width: 500px;
   height: max-content;
   background-color: var(--bg-color);
   gap: 1rem;
   margin: 10px;
+}
+
+.registerLogin form {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  height: max-content;
+  gap: 1rem;
+  margin: 10px;
+}
+
+.registerLogin div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-basis: 100%;
 }
 
 /*main*/
