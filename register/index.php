@@ -19,7 +19,7 @@
   </nav>
   <main>
     <!--register-->
-    <form class="registerLogin" action="../authenticate/register.php" method="post" onsubmit="return verifyRegister()">
+    <form class="registerLogin" action="" method="post" onsubmit="return verifyRegister()">
       <div>
         <label for="fullName">full name</label>
         <input type="text" id="fullName" name="fullName">
@@ -42,6 +42,60 @@
       </div>
         <input type="submit" value="Register">
       <p>allready have an account? <a href="../login">login</a></p>
+    </form>
+    <div>
+        <?php
+          $DATABASE_HOST = 'localhost';
+          $DATABASE_USER = 'root';
+          $DATABASE_PASS = '';
+          $DATABASE_NAME = 'taitajat';
+
+          $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+          if ( mysqli_connect_errno() ) {
+            die('Failed to connect to MySQL: ' . mysqli_connect_error());
+          }
+          if (!isset( $_POST['username'], $_POST['password'], $_POST['fullName'], $_POST['email'], $_POST['passwordRepeat'] )) {
+            exit();
+          }
+          $required_fields = array('username', 'password', 'fullName', 'email', 'passwordRepeat');
+          if (array_filter($required_fields, function($field) {
+              return empty($_POST[$field]);
+          })) {
+              exit("please fill all fields");
+          }
+        
+          if ($stm = $con->prepare('SELECT username FROM users WHERE username = ?')) {
+            $stm->bind_param('s', $_POST['username']);
+            $stm->execute();
+            $stm->store_result();
+          
+            //check if exists
+            if ($stm->num_rows > 0) {
+              echo 'username already exists';
+            } else {
+              if ($_POST['password'] !== $_POST['passwordRepeat']) {
+              echo 'passwords do not match';
+              } else {
+                if ($stm = $con->prepare('INSERT INTO users (username, password, fullName, email) VALUES (?, ?, ?, ?)')) {
+                  $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                  $stm->bind_param('ssss', $_POST['username'], $password, $_POST['fullName'], $_POST['email']);
+                  $stm->execute();
+
+                  session_regenerate_id();
+                  $_SESSION['loggedin'] = TRUE;
+                  $_SESSION['name'] = $_POST['username'];
+                  $_SESSION['id'] = $id;
+                  //redirect to main page
+                  header('Location: ../');
+                } else {
+                  echo 'error';
+                }
+              }
+            }
+            $stm->close();
+          }
+        ?>
+      </div>
   </main>
   <footer></footer>
   <script src="script.js"></script>

@@ -67,6 +67,10 @@ nav ul li:not(.active):hover a {
   transform: scale(1.05);
 }
 
+nav ul li:hover {
+  cursor: pointer;
+}
+
 .active a {
   transition: 1s ease;
   filter: opacity(0.5);
