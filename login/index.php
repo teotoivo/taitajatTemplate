@@ -42,10 +42,13 @@
     <div>
       <?php
         
-        $DATABASE_HOST = 'localhost';
-        $DATABASE_USER = 'root';
-        $DATABASE_PASS = '';
-        $DATABASE_NAME = 'taitajat';
+        $config = json_decode(file_get_contents('../config.json'), true);
+
+        $DATABASE_HOST = $config['sqlInfo']['DATABASE_HOST']; 
+        $DATABASE_USER = $config['sqlInfo']['DATABASE_USER'];
+        $DATABASE_PASS = $config['sqlInfo']['DATABASE_PASS'];
+        $DATABASE_NAME = $config['sqlInfo']['DATABASE_NAME'];
+
         $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
         if ( mysqli_connect_errno() ) {
           die('Failed to connect to MySQL: ' . mysqli_connect_error());
