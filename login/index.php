@@ -14,12 +14,20 @@
     <ul>
       <li><a href="../">Home</a></li>
       <li><a href="../phpmyadmin">php my admin</a></li>
-      <li class="active"><a href="">login</a></li>
+      <?php
+        if(isset($_SESSION['loggedin'])): ?>
+          <li><a href="/settings">settings</a></li>
+        <?php
+        else: ?>
+          <li class="active"><a href="/login">login</a></li>
+        <?php
+        endif;
+      ?>
     </ul>
   </nav>
   <main>
     <!--login-->
-    <form class="registerLogin" action="../authenticate/index.php" method="post" onsubmit="return verifyLogin()">
+    <form class="registerLogin" action="" method="post" onsubmit="return verifyLogin()">
       <div>  
         <label for="username">username</label>
         <input type="text" name="username" id="username">
@@ -38,7 +46,6 @@
         $DATABASE_USER = 'root';
         $DATABASE_PASS = '';
         $DATABASE_NAME = 'taitajat';
-      
         $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
         if ( mysqli_connect_errno() ) {
           die('Failed to connect to MySQL: ' . mysqli_connect_error());
