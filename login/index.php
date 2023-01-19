@@ -13,33 +13,42 @@
   <nav>
     <ul>
       <li><a href="../">Home</a></li>
-      <li><a href="../phpmyadmin">php my admin</a></li>
+      <li><a href=".../phpmyadmin">php my admin</a></li>
       <?php
         if(isset($_SESSION['loggedin'])): ?>
-          <li><a href="/settings">settings</a></li>
+          <li><a href="./settings">settings</a></li>
         <?php
         else: ?>
-          <li class="active"><a href="/login">login</a></li>
+          <li class="active"><a href="./login">login</a></li>
         <?php
         endif;
       ?>
     </ul>
   </nav>
   <main>
+    <!--check if logged in-->
+    <?php
+      if(isset($_SESSION['loggedin'])): ?>
+        <p>you are logged in</p>
+      <?php
+      else: ?>
     <!--login-->
-    <form class="registerLogin" action="" method="post" onsubmit="return verifyLogin()">
-      <div>  
-        <label for="username">username</label>
-        <input type="text" name="username" id="username">
-      </div>
+      <form class="registerLogin" action="" method="post" onsubmit="return verifyLogin()">
+        <div>  
+          <label for="username">username</label>
+          <input type="text" name="username" id="username">
+        </div>
+        <div>
+          <label for="password">password</label>
+          <input type="password" id="password" name="password">
+        </div>
+          <input type="submit" value="Login">
+        <p>Don't have an account? <a href="../register">register</a></p>
+      </form>
+      <?php
+      endif;
+      ?>
       <div>
-        <label for="password">password</label>
-        <input type="password" id="password" name="password">
-      </div>
-        <input type="submit" value="Login">
-      <p>Don't have an account? <a href="../register">register</a></p>
-    </form>
-    <div>
       <?php
         
         $config = json_decode(file_get_contents('../config.json'), true);
@@ -76,7 +85,7 @@
               $_SESSION['loggedin'] = TRUE;
               $_SESSION['name'] = $_POST['username'];
               $_SESSION['id'] = $id;
-            header('Location: /');
+              header('Location: ../');
             } else {
               echo 'incorrect password and/or password!';
             }

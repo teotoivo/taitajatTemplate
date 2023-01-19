@@ -13,13 +13,13 @@
   <nav>
     <ul>
       <li><a href="../">Home</a></li>
-      <li><a href="../phpmyadmin">php my admin</a></li>
+      <li><a href=".../phpmyadmin">php my admin</a></li>
       <?php
         if(isset($_SESSION['loggedin'])): ?>
-          <li><a href="/settings">settings</a></li>
+          <li><a href="./settings">settings</a></li>
         <?php
         else: ?>
-          <li class="active"><a href="/login">login</a></li>
+          <li class="active"><a href="./login">login</a></li>
         <?php
         endif;
       ?>

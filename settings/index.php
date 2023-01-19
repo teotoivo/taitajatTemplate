@@ -21,7 +21,7 @@
   <nav>
     <ul>
       <li ><a href="../">Home</a></li>
-      <li><a href="../phpmyadmin">php my admin</a></li>
+      <li><a href=".../phpmyadmin">php my admin</a></li>
       <?php
         if(isset($_SESSION['loggedin'])): ?>
           <li class="active"><a href="../settings">settings</a></li>
