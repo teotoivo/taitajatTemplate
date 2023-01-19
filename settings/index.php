@@ -31,21 +31,10 @@
       if(isset($_SESSION['loggedin'])): ?>
         <p>You are logged in! <a href="../logout/index.php">log out</a></p>
 		<div id="settings">
-			<ul>
-				<li>
-          <div>
-            <?php
-              //get user info
-              
-            ?>
-          </div>
-				</li>
-				<li>
-					<div>
-            
-          </div>
-				</li>
-			</ul>
+			<?php
+        //get info from my sql
+        
+      ?>
 		</div>
       <?php
       else: ?>
