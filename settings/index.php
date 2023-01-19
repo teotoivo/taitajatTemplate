@@ -33,10 +33,17 @@
 		<div id="settings">
 			<ul>
 				<li>
-          <p>profile</p>
+          <div>
+            <?php
+              //get user info
+              
+            ?>
+          </div>
 				</li>
 				<li>
-					<p>accessibility</p>
+					<div>
+            
+          </div>
 				</li>
 			</ul>
 		</div>
