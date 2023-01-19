@@ -1,4 +1,11 @@
-<?php session_start(); ?>
+<?php session_start();
+  //define database info
+  $config = json_decode(file_get_contents('../config.json'), true);
+  $DATABASE_HOST = $config['sqlInfo']['DATABASE_HOST']; 
+  $DATABASE_USER = $config['sqlInfo']['DATABASE_USER'];
+  $DATABASE_PASS = $config['sqlInfo']['DATABASE_PASS'];
+  $DATABASE_NAME = $config['sqlInfo']['DATABASE_NAME'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +40,23 @@
 		<div id="settings">
 			<?php
         //get info from my sql
-        
+        $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+        if ( mysqli_connect_errno() ) {
+          die('Failed to connect to MySQL: ' . mysqli_connect_error());
+        }
+      if ($stm = $con->prepare('SELECT * FROM users WHERE username = ?')) {
+        $stm->bind_param('s', $_SESSION['name']);
+        $stm->execute();
+        $result = $stm->get_result();
+        $user = $result->fetch_assoc();
+        $stm->close();
+        echo '<p>Username: ' . $user['username'] . '</p>';
+        echo '<p>Email: ' . $user['email'] . '</p>';
+        echo '<p>Full name: ' . $user['fullName'] . '</p>';
+      }
+      else {
+        echo 'Could not prepare statement!';
+      }
       ?>
 		</div>
       <?php
