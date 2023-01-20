@@ -1,6 +1,7 @@
 $(function () {
   $(".menuBurger").on("click", function () {
-    console.log("clicked");
     $(".menu").toggleClass("open");
+    $("nav").toggleClass("open");
+    $("header").toggleClass("open");
   });
 });

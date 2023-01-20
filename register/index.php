@@ -7,24 +7,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="../style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="../jquery.js"></script>
+  <script src="../main.js"></script>
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="../">Home</a></li>
-      <li><a href=".../phpmyadmin">php my admin</a></li>
-      <?php
-        if(isset($_SESSION['loggedin'])): ?>
-          <li><a href="./settings">settings</a></li>
+<header>
+    <nav>
+      <ul class="menu">
+        <li class="menuBurger"><button><img src="../assets/menu.svg" alt="menu" width="50px" height="50px"></button></li>
+        <li class=""><a href="../">Home</a></li>
+        <li><a href=".../phpmyadmin">php my admin</a></li>
         <?php
-        else: ?>
-          <li class="active"><a href="./login">login</a></li>
-        <?php
-        endif;
-      ?>
-    </ul>
-  </nav>
+          if(isset($_SESSION['loggedin'])): ?>
+            <li><a href="./settings">settings</a></li>
+          <?php
+          else: ?>
+            <li><a class="active" href="./login">login</a></li>
+          <?php
+          endif;
+        ?>
+      </ul>
+    </nav>
+  </header>
   <main>
     <!--register-->
     <form class="registerLogin" action="" method="post" onsubmit="return verifyRegister()">

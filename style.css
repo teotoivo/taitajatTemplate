@@ -149,3 +149,37 @@ main {
     display: none;
   }
 }
+
+body .open {
+  display: flex;
+  height: 200px;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+header .open {
+  display: flex;
+  height: max-content;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+nav .open {
+  display: flex !important;
+  height: 200px;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+nav .open li {
+  display: flex !important;
+  height: 100%;
+  align-items: center;
+}
+
+nav .open li:last-child {
+  margin-left: 0;
+}
