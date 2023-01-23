@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,7 @@
   <script src="./jquery.js"></script>
   <script src="./main.js"></script>
 </head>
+
 <body>
   <header>
     <nav>
@@ -18,31 +20,37 @@
         <li class="active"><a href="./">Home</a></li>
         <li><a href="../phpmyadmin">php my admin</a></li>
         <?php
-          if(isset($_SESSION['loggedin'])): ?>
-            <li><a href="./settings">settings</a></li>
+        if (isset($_SESSION['loggedin'])): ?>
+          <li><a href="./settings">settings</a></li>
           <?php
-          else: ?>
-            <li><a href="./login">login</a></li>
+        else: ?>
+          <li><a href="./login">login</a></li>
           <?php
-          endif;
+        endif;
         ?>
       </ul>
     </nav>
   </header>
   <main>
     <?php
-      if(isset($_SESSION['loggedin'])): ?>
-        <p>You are logged in!</p>
+    if (isset($_SESSION['loggedin'])): ?>
+      <p>You are logged in!</p>
       <?php
-      else: ?>
-        <p>You are logged out!</p>
+    else: ?>
+      <p>You are logged out!</p>
       <?php
-      endif;
+    endif;
     ?>
+
   </main>
   <footer>
-    
+    <p>Name: Teo Maximilien</p>
+    <div>
+      <p>Email: teo.maximilien@gmail.com</p>
+      <p>Phone: 040 123 4567</p>
+    </div>
   </footer>
   <script src="script.js"></script>
 </body>
+
 </html>
