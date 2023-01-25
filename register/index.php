@@ -37,23 +37,23 @@
     <form class="registerLogin" action="" method="post" onsubmit="return verifyRegister()">
       <div>
         <label for="fullName">full name</label>
-        <input type="text" id="fullName" name="fullName">
+        <input required type="text" id="fullName" name="fullName">
       </div>
       <div>
         <label for="username">username</label>
-        <input type="text" id="username" name="username">
+        <input required type="text" id="username" name="username">
       </div>
       <div>
         <label for="email">email</label>
-        <input type="text" id="email" name="email">
+        <input required type="text" id="email" name="email">
       </div>
       <div>
         <label for="password">password</label>
-        <input type="password" id="password" name="password">
+        <input required type="password" id="password" name="password">
       </div>
       <div>
         <label for="passwordRepeat">repeat password</label>
-        <input type="password" id="passwordRepeat" name="passwordRepeat">
+        <input required type="password" id="passwordRepeat" name="passwordRepeat">
       </div>
       <input type="submit" value="Register">
       <p>allready have an account? <a href="../login">login</a></p>

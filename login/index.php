@@ -43,11 +43,11 @@
       <form class="registerLogin" action="" method="post" onsubmit="return verifyLogin()">
         <div>
           <label for="username">username</label>
-          <input type="text" name="username" id="username">
+          <input required type="text" name="username" id="username">
         </div>
         <div>
           <label for="password">password</label>
-          <input type="password" id="password" name="password">
+          <input required type="password" id="password" name="password">
         </div>
         <input type="submit" value="Login">
         <p>Don't have an account? <a href="../register">register</a></p>
