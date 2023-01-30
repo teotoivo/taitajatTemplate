@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start();
+$current = "home";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,24 +15,7 @@
 </head>
 
 <body>
-  <header>
-    <nav>
-      <ul class="menu">
-        <li class="menuBurger"><button><img src="./assets/menu.svg" alt="menu" width="50px" height="50px"></button></li>
-        <li class="active"><a href="./">Home</a></li>
-        <li><a href="../phpmyadmin">php my admin</a></li>
-        <?php
-        if (isset($_SESSION['loggedin'])): ?>
-          <li><a href="./settings">settings</a></li>
-          <?php
-        else: ?>
-          <li><a href="./login">login</a></li>
-          <?php
-        endif;
-        ?>
-      </ul>
-    </nav>
-  </header>
+  <?php include_once("./components/header.php") ?>
   <main>
     <?php
     if (isset($_SESSION['loggedin'])): ?>
@@ -43,14 +28,9 @@
     ?>
 
   </main>
-  <footer>
-    <p>Name: Teo Maximilien</p>
-    <div>
-      <p>Email: teo.maximilien@gmail.com</p>
-      <p>Phone: 040 123 4567</p>
-    </div>
-  </footer>
-  <script src="script.js"></script>
+
+  <?php include_once("./components/footer.php") ?>
 </body>
+
 
 </html>

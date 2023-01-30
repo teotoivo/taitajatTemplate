@@ -98,16 +98,23 @@ nav ul li:hover {
   transform: scale(1.1);
 }
 
+.menuBurger button img {
+  width: 50px;
+  height: 50px;
+}
+
 /* register/login form */
 .registerLogin {
   display: flex;
   flex-direction: column;
   min-width: 100px;
-  max-width: 500px;
+  max-width: 400px;
   height: max-content;
   background-color: var(--bg-color);
   gap: 1rem;
   margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .registerLogin form {
@@ -161,6 +168,11 @@ footer {
   nav ul li:not(.menuBurger) {
     display: none;
   }
+  .menuBurger {
+    justify-self: center;
+    display: flex;
+    align-items: center;
+  }
 }
 
 body .open {
@@ -185,6 +197,7 @@ nav .open {
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 1rem;
+  margin-top: 5px;
 }
 
 nav .open li {
